@@ -1,0 +1,18 @@
+﻿<tables>
+	
+<tabledetails>
+<table>1</table>
+<fio>
+	<name>Иван</name>
+	<surname>Иванов</surname>
+</fio>	
+<date>24.03.2023</date>
+<details>
+	<persons>3</persons>
+	<event>день рождения</event>
+</details>
+</tabledetails>
+
+
+	
+</tables>
