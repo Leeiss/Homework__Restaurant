@@ -2,43 +2,85 @@
 	<today>
 		<person>
 			<fio>
-				1 <name>1 </name>1
+				Иванов <name>Иван </name>Иванович
 			</fio>
 			<tabel>
 				15
 			</tabel>
 			<date>
-				14<timespan>04</timespan>2021
+				17<timespan>04</timespan>2023
 			</date>
 			<status>зарезервировано</status>
 			<event>день рождения</event>
 		</person>
 		
+		<person>
+			<fio>
+				Тостолуцкая <name>Полина </name>Владимировна
+			</fio>
+			<tabel>
+				20
+			</tabel>
+			<date>
+				17<timespan>04</timespan>2023
+			</date>
+			<status>внесен залог</status>
+			<event>сессия закрыта</event>
+		</person>
+		
+		<person>
+			<fio>
+				Сайфуллин <name>Азат </name>ОтчествоНеПомню
+			</fio>
+			<tabel>
+				27
+			</tabel>
+			<date>
+				17<timespan>04</timespan>2023
+			</date>
+			<status>внесен залог</status>
+			<event>концерт соды лав</event>
+		</person>
+		
+		<person>
+			<fio>
+				Хамидуллина <name>Диана </name>Ринатовна
+			</fio>
+			<tabel>
+				1
+			</tabel>
+			<date>
+				17<timespan>04</timespan>2023
+			</date>
+			<status>зарезервировано</status>
+			<event>отработка пропусков по физре</event>
+		</person>	
 	</today>
+	
 	<tomorrow>
 		<person>
 			<fio>
-				4<name>4</name>4
+				Гильфанова <name>Аделя </name>Маратовна
 			</fio>
 			<tabel>
-				15
+				13
 			</tabel>
 			<date>
-				14<timespan>04</timespan>2021
+				18<timespan>04</timespan>2023
 			</date>
-			<status>зарезервировано</status>
-			<event>день рождения</event>
+			<status>внесена предоплата</status>
+			<event>концерт максим</event>
 		</person>
 
 		<person>
 			<fio>
-				5<name>5</name>5
+				Ахметзянов <name>Камиль </name>ОтчествоНеПомню
 			</fio>
 			<tabel>
-				15
+				100
 			</tabel>
 			<date>
-				14<timespan>05</timespan>2023
+				18<timespan>04</timespan>2023
 			</date>
 			<status>оплачено</status>
 			<event>закрыта сессия</event>
@@ -46,33 +88,60 @@
 
 		<person>
 			<fio>
-				6<name>6</name>6
+				Зялаев <name>Дамир </name>Ильдусович
 			</fio>
 			<tabel>
-				15
+				43
 			</tabel>
 			<date>
-				19<timespan>09</timespan>2023
+				18<timespan>04</timespan>2023
 			</date>
-			<status>зарезервировано</status>
-			<event>закрыта сессия</event>
+			<status>внесена предоплата</status>
+			<event>в общаге отключили отопление</event>
 		</person>
 	</tomorrow>
+	
 	<later>
 		<person>
 			<fio>
-				7<name>7</name>7
+				Гаврилова<name>Мария</name>Вячеславовна
+			</fio>
+			<tabel>
+				67
+			</tabel>
+			<date>
+				13<timespan>06</timespan>2023
+			</date>
+			<status>зарезервировано</status>
+			<event>свадьба</event>
+		</person>
+
+		<person>
+			<fio>
+				Козлова<name>Александрина</name>Романовна
 			</fio>
 			<tabel>
 				15
 			</tabel>
 			<date>
-				14<timespan>04</timespan>2021
+				19<timespan>07</timespan>2023
 			</date>
-			<status>зарезервировано</status>
-			<event>день рождения</event>
+			<status>внесена предоплата</status>
+			<event>прохождение в школу 21</event>
 		</person>
-
 		
+		<person>
+			<fio>
+				Белова<name>Екатерина</name>Дмитриевна
+			</fio>
+			<tabel>
+				27
+			</tabel>
+			<date>
+				12<timespan>05</timespan>2021
+			</date>
+			<status>внесена предоплата</status>
+			<event>без повода</event>
+		</person>
 	</later>
 </bookingtables>
