@@ -109,7 +109,7 @@
             upper_panel.BackColor = Color.FromArgb(112, 151, 171);
             upper_panel.Location = new Point(-1, 30);
             upper_panel.Name = "upper_panel";
-            upper_panel.Size = new Size(1592, 20);
+            upper_panel.Size = new Size(1592, 16);
             upper_panel.TabIndex = 0;
             // 
             // splitContainer
