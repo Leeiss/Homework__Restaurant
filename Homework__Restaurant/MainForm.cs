@@ -1,12 +1,15 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Reflection.Metadata;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Homework__Restaurant
 {
@@ -16,79 +19,105 @@ namespace Homework__Restaurant
         {
             InitializeComponent();
         }
-        //public bool CorrectPassword;
-        //private List<TableDetails> ReadDataFromXml(string filePath)
-//{
-         //   XmlSerializer serializer = new XmlSerializer(typeof(List<TableDetails>), new XmlRootAttribute("tables"));
-          //  using (TextReader reader = new StreamReader(filePath))
-          //  {
-          //      data = (List<TableDetails>)serializer.Deserialize(reader);
-           // }
+        string path_to_fileXml = @"./../../../Tables.xml";
+        string path_to_fileJSON = @"./../../../Guests.xml";
+        List<Guests> guestsList = new List<Guests>();
 
-        //    return data;
-        //}
-        private void MainFormLoad(object sender, EventArgs e)
-        { 
 
-            //DataSet ds = new DataSet();
-            //ds.ReadXml(@"C:\Users\farra\source\repos\Homework__Restaurant\Homework__Restaurant\Tables.xml");
-            // dataGridView_reservedplace.DataSource = ds.Tables[0];
-            //Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            // dataGridView_reservedplace.Columns[0].HeaderText = "Номер столика";
-            //dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
-            //dataGridViewCellStyle1.BackColor = Color.FromArgb(112, 151, 171);
-            //dataGridViewCellStyle1.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            //dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-            //Column1.DefaultCellStyle = dataGridViewCellStyle1;
-            //Column1.HeaderText = "Номер столика";
-            //Column1.MinimumWidth = 10;
-            //Column1.Name = "Column1";
-            //Column1.Width = 227;
 
-        }
-        /*private DataTable CreateTable()
+        /// <summary>
+        /// Выводим в treeview фио людей из нужной категории
+        /// </summary>
+        /// <param name="timespan"></param>
+        private void DownloadFile(string timespan, int index)
         {
-            //создаём таблицу
-            DataTable dt = new DataTable("Tables");
-            //создаём три колонки
-            DataColumn colNum = new DataColumn("Номер столика", typeof(String));
-            DataColumn colDate = new DataColumn("Дата", typeof(String));
-            DataColumn colEvent = new DataColumn("Мероприятиe", typeof(String));
-            DataColumn colDet = new DataColumn("Детали", typeof(String));
-            //добавляем колонки в таблицу
-            dt.Columns.Add(colNum);
-            dt.Columns.Add(colDate);
-            dt.Columns.Add(colEvent);
-            dt.Columns.Add(colDet);
-            return dt;
-        //}
-        private DataTable ReadXml()
-        {
-            DataTable dt = null;
-            try
+            TreeNode parentNode = menu_tree.Nodes[0];
+            int childCount = parentNode.Nodes.Count;
+
+            if (childCount > 0)
             {
-                //загружаем xml файл
-                XDocument xDoc = XDocument.Load(@"C:\Users\farra\source\repos\Homework__Restaurant\Homework__Restaurant\Tables.xml");
-                //создаём таблицу
-                dt = CreateTable();
-                DataRow newRow = null;
-                //получаем все узлы в xml файле
-                foreach (XElement elm in xDoc.Descendants("tables"))
+                for (int i = 0; i < childCount; i++)
                 {
-                    newRow = dt.NewRow();
-                    newRow["number"] = elm.Attribute("number").Value;
-                    newRow["date"] = elm.Element("date").Value;
-                    newRow["event"] = elm.Element("event").Value;
-                    newRow["details"] = elm.Element("details").Value;
-                    dt.Rows.Add(newRow);
+                    TreeNode childNode = parentNode.Nodes[i];
+                    childNode.Nodes.Clear();
                 }
             }
-            catch
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(path_to_fileXml);
+            XmlNodeList personNodes = xmlDoc.SelectNodes($"//{timespan}/person");
+            foreach (XmlNode personNode in personNodes)
             {
-                MessageBox.Show("Ошибка");
+                TreeNode treeNode = new TreeNode();
+
+                XmlNode fioNode = personNode.SelectSingleNode(".//fio");
+                string fioValue = fioNode.InnerText;
+
+                treeNode.Text = fioValue;
+                menu_tree.Nodes[index].Nodes.Add(treeNode);
             }
-            return dt;
-        }*/
+        }
+
+
+        /// <summary>
+        /// Заполняем List guest данными с xml файла
+        /// </summary>
+        /// <param name="timespan"></param>
+        private void FillListWithData(string timespan)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(path_to_fileXml);
+            XmlElement root = xDoc.DocumentElement;
+            foreach (XmlElement node in root)
+            {
+                if (node.Name == $"{timespan}")
+                {
+                    foreach (XmlNode child1 in node.ChildNodes)
+                    {
+                        Guests guest = new Guests();
+                        foreach (XmlNode child in child1.ChildNodes)
+                        {
+                            switch (child.Name)
+                            {
+                                case "fio":
+                                    guest.Name = $"{child.ChildNodes[0].InnerText} {child.ChildNodes[1].InnerText} {child.ChildNodes[2].InnerText}";
+                                    break;
+                                case "date":
+                                    guest.Date = $"{child.ChildNodes[0].InnerText}/{child.ChildNodes[1].InnerText}/{child.ChildNodes[2].InnerText}";
+                                    break;
+                                case "tabel":
+                                    guest.Table = int.Parse(child.InnerText);
+                                    break;
+                                case "status":
+                                    guest.Status = child.InnerText;
+                                    break;
+                                case "event":
+                                    guest.Event = child.InnerText;
+                                    break;
+                            }
+                        }
+                        guestsList.Add(guest);
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Заполняет DataGridView данными из листа
+        /// </summary>
+        private void FillDataGrigView()
+        {
+            foreach (Guests guest in guestsList)
+            {
+                dataGridView_booking.Rows.Add(guest.Name, guest.Table, guest.Date, guest.Status, guest.Event);
+            }
+        }
+
+        /// <summary>
+        /// Задает параметры для сплиттера
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SplitterColor(object sender, PaintEventArgs e)
         {
             SplitContainer l_SplitContainer = sender as SplitContainer;
@@ -102,102 +131,108 @@ namespace Homework__Restaurant
             }
         }
 
-
-
-
-        private void ShowTable(object sender, TreeNodeMouseClickEventArgs e)
+        /// <summary>
+        /// Создает treeview
+        /// </summary>
+        private void CreateTreeView()
         {
-            TreeNode node = e.Node;
-            if (node == null)
-            {
-                return;
-            }
-            switch (e.Node.Text)
-            {
-                case "Бронь":
-                    //dataGridView_reservedplace.DataSource = ReadXml();
-                    close_table_btn.Visible = false;
-                    change_btn.Visible = false;
-                    delete_btn.Visible = true;
-                    guest_btn.Visible = false;
-                    reserveplace_btn.Visible = true;
-                    info_btn.Visible = true;
-                    dataGridView_archive.Visible = false;
-                    dataGridView_employees.Visible = false;
-                    dataGridView_guests.Visible = false;
-                    dataGridView_reservedplace.Visible = true;
-                    break;
-                case "Гости в зале":
-                    //switch (e.Node.Node.Text)
-                    //{
-                    //   case "Зарезервировано":
-                    //        {
-                    //            MessageBox.Show("eeeec");
-                    //            break;
-                    //       }
-                    //}
-                    close_table_btn.Visible = true;
-                    change_btn.Visible = false;
-                    delete_btn.Visible = false;
-                    guest_btn.Visible = true;
-                    reserveplace_btn.Visible = false;
-                    info_btn.Visible = true;
-                    dataGridView_archive.Visible = false;
-                    dataGridView_employees.Visible = false;
-                    dataGridView_guests.Visible = true;
-                    dataGridView_reservedplace.Visible = false;
-                    break;
-                case "Архив посетителей":
-                    close_table_btn.Visible = false;
-                    change_btn.Visible = false;
-                    delete_btn.Visible = false;
-                    guest_btn.Visible = false;
-                    info_btn.Visible = true;
-                    dataGridView_archive.Visible = true;
-                    dataGridView_employees.Visible = false;
-                    dataGridView_guests.Visible = false;
-                    dataGridView_reservedplace.Visible = false;
-                    break;
-                case "Сотрудники":
-                    close_table_btn.Visible = false;
-                    change_btn.Visible = false;
-                    delete_btn.Visible = false;
-                    guest_btn.Visible = false;
-                    info_btn.Visible = false;
-                    dataGridView_archive.Visible = false;
-                    dataGridView_employees.Visible = false;
-                    dataGridView_guests.Visible = false;
-                    dataGridView_reservedplace.Visible = false;
-                    Administration administration = new Administration();
-                    administration.ShowDialog();
-                    if (administration.DialogResult == DialogResult.OK)
-                    {
-                        MessageBox.Show("Вход не выполнен");
-                        dataGridView_employees.Visible = false;
-                    }
-                    else
-                    {
-                        info_btn.Visible = true;
-                        dataGridView_employees.Visible = true;
-                        change_btn.Visible = true;
-                    }
-                    break;
+            menu_tree.Nodes.Add("Бронь");
+            menu_tree.Nodes.Add("Гости в зале");
+        }
 
+        private void booking_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            download_btn.Visible = true;
+        }
+
+        private void guests_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            download_btn.Visible = true;
+        }
+
+        private void download_btn_Click(object sender, EventArgs e)
+        {
+            menu_tree.Nodes.Clear();
+            CreateTreeView();
+            dataGridView_booking.Visible = true;
+            dataGridView_guests.Visible = false;
+            if (this.booking_list.SelectedItems.Count != 0 && this.guests_list.SelectedItems.Count == 0)
+            {
+                guestsList.Clear();
+                dataGridView_booking.DataSource = null;
+                dataGridView_booking.Rows.Clear();
+
+
+                int select_category = booking_list.SelectedIndex;
+                switch (select_category)
+                {
+                    case 0:
+                        {
+                            DownloadFile("today", 0);
+                            FillListWithData("today");
+                        }
+
+                        break;
+                    case 1:
+                        {
+                            DownloadFile("tomorrow", 0);
+                            FillListWithData("tomorrow");
+                        }
+                        break;
+                    case 2:
+                        {
+                            DownloadFile("later", 0);
+                            FillListWithData("later");
+                        }
+                        break;
+
+                }
+                FillDataGrigView();
+                MessageBox.Show("Данные успешно загружены");
+            }
+            else if (this.booking_list.SelectedItems.Count == 0 && this.guests_list.SelectedItems.Count != 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Выберите одну категорию");
             }
         }
 
-        private void dataGridView_employees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void close_btn_Click(object sender, EventArgs e)
         {
-            change_btn.Visible = true;
+            this.Close();
         }
 
-        private void activate(object sender, EventArgs e)
+        /// <summary>
+        /// Заполняет даннымы форму InfoBooking
+        /// </summary>
+        private void menu_tree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            dataGridView_employees.Visible = false;
+            int index = menu_tree.SelectedNode.Index;
+            if (e.Node.Parent != null && e.Node.Parent.Text == "Бронь")
+            {
+                InfoBooking info = new InfoBooking
+                {
+                    Name = guestsList[index].Name,
+                    Table = guestsList[index].Table.ToString(),
+                    Date = guestsList[index].Date,
+                    Status = guestsList[index].Status,
+                    Event = guestsList[index].Event
+
+                };
+                info.ShowDialog();
+            }
         }
 
-        private void splitContainer_Panel1_Paint(object sender, PaintEventArgs e)
+        private void MainForm_Resize(object sender, EventArgs e)
         {
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+            int pictureBoxHeight = mainpicture.Height;
+            int pictureBoxY = (formHeight - pictureBoxHeight) / 2;
+            upper_panel.Location = new Point(formWidth * 2, pictureBoxY);
 
         }
     }

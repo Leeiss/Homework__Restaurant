@@ -1,18 +1,78 @@
-﻿<tables>
-	
-<tabledetails>
-<table>1</table>
-<fio>
-	<name>Иван</name>
-	<surname>Иванов</surname>
-</fio>	
-<date>24.03.2023</date>
-<details>
-	<persons>3</persons>
-	<event>день рождения</event>
-</details>
-</tabledetails>
+﻿<bookingtables>
+	<today>
+		<person>
+			<fio>
+				1 <name>1 </name>1
+			</fio>
+			<tabel>
+				15
+			</tabel>
+			<date>
+				14<timespan>04</timespan>2021
+			</date>
+			<status>зарезервировано</status>
+			<event>день рождения</event>
+		</person>
+		
+	</today>
+	<tomorrow>
+		<person>
+			<fio>
+				4<name>4</name>4
+			</fio>
+			<tabel>
+				15
+			</tabel>
+			<date>
+				14<timespan>04</timespan>2021
+			</date>
+			<status>зарезервировано</status>
+			<event>день рождения</event>
+		</person>
 
+		<person>
+			<fio>
+				5<name>5</name>5
+			</fio>
+			<tabel>
+				15
+			</tabel>
+			<date>
+				14<timespan>05</timespan>2023
+			</date>
+			<status>оплачено</status>
+			<event>закрыта сессия</event>
+		</person>
 
-	
-</tables>
+		<person>
+			<fio>
+				6<name>6</name>6
+			</fio>
+			<tabel>
+				15
+			</tabel>
+			<date>
+				19<timespan>09</timespan>2023
+			</date>
+			<status>зарезервировано</status>
+			<event>закрыта сессия</event>
+		</person>
+	</tomorrow>
+	<later>
+		<person>
+			<fio>
+				7<name>7</name>7
+			</fio>
+			<tabel>
+				15
+			</tabel>
+			<date>
+				14<timespan>04</timespan>2021
+			</date>
+			<status>зарезервировано</status>
+			<event>день рождения</event>
+		</person>
+
+		
+	</later>
+</bookingtables>
