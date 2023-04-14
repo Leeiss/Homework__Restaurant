@@ -1,15 +1,11 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Reflection.Metadata;
-using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.Json.Nodes;
+using System.Text.Json;
+using System.Windows.Forms;
+using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Homework__Restaurant
 {
@@ -19,17 +15,18 @@ namespace Homework__Restaurant
         {
             InitializeComponent();
         }
-        string path_to_fileXml = @"./../../../Tables.xml";
-        string path_to_fileJSON = @"./../../../Guests.xml";
+        string path_to_fileXml = @"./../../../BookigTables.xml";
+        string path_to_fileJSON = @"./../../../Guests.json";
         List<Guests> guestsList = new List<Guests>();
+        List<OccupiedTables> occupiedTablesList = new List<OccupiedTables>();
 
 
 
         /// <summary>
-        /// Выводим в treeview фио людей из нужной категории
+        /// Выводим в treeview фио людей из нужной категории c xml файла
         /// </summary>
         /// <param name="timespan"></param>
-        private void DownloadFile(string timespan, int index)
+        private void DownloadXMLFile(string timespan, int index)
         {
             TreeNode parentNode = menu_tree.Nodes[0];
             int childCount = parentNode.Nodes.Count;
@@ -59,10 +56,32 @@ namespace Homework__Restaurant
 
 
         /// <summary>
-        /// Заполняем List guest данными с xml файла
+        /// Выводим в treeview фио людей из нужной категории c JSON файла
+        /// </summary>
+        /// <param name="tablenumbers"></param>
+        /// <param name="index"></param>
+        private void DownloadJSONFile(string tablenumbers, int index)
+        {
+            var jsonString = File.ReadAllText(path_to_fileJSON);
+
+            var jsonDoc = JsonDocument.Parse(jsonString);
+
+            var firstTables = jsonDoc.RootElement.GetProperty($"{tablenumbers}");
+
+            foreach (var table in firstTables.EnumerateArray())
+            {
+                var number = table.GetProperty("table").GetProperty("number").GetString();
+                menu_tree.Nodes[index].Nodes.Add(number);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Заполняем List guest данными с XML файла
         /// </summary>
         /// <param name="timespan"></param>
-        private void FillListWithData(string timespan)
+        private void FillListWithDataFromXML(string timespan)
         {
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load(path_to_fileXml);
@@ -102,16 +121,54 @@ namespace Homework__Restaurant
         }
 
 
+
         /// <summary>
-        /// Заполняет DataGridView данными из листа
+        /// Десериализуем JSON файл и добавляем данные в классы
         /// </summary>
-        private void FillDataGrigView()
+        /// <param name="tablenumbers"></param>
+        private void FillListWithDataFromJSON(string tablenumbers)
+        {
+            string path = File.ReadAllText(path_to_fileJSON);
+            JsonNode data = JsonNode.Parse(path);
+            for (int i = 0; i < 3; i++)
+            {
+                OccupiedTables occupiedTable = new OccupiedTables();
+                JsonNode root = data[$"{tablenumbers}"][i];
+                occupiedTable.Table = $"{(string)root["table"]["number"]}, вместимостью {(string)root["table"]["capacity"]}";
+                occupiedTable.Order = $"Из основного меню: {(string)root["order"]["food"]}.Напитки: {(string)root["order"]["beverages"]}";
+                occupiedTable.Persons = (string)root["persons"];
+                occupiedTable.Payment = (string)root["payment"];
+                occupiedTable.Status = (string)root["status"];
+                occupiedTablesList.Add(occupiedTable);
+            }
+        }
+
+
+        /// <summary>
+        /// Заполняет DataGridView данными из листа (XML)
+        /// </summary>
+        private void FillDataGrigViewFromXML()
         {
             foreach (Guests guest in guestsList)
             {
                 dataGridView_booking.Rows.Add(guest.Name, guest.Table, guest.Date, guest.Status, guest.Event);
             }
         }
+
+
+
+        /// <summary>
+        /// Заполняет DataGridView данными из листа (JSON)
+        /// </summary>
+        private void FillDataGrigViewFromJSON()
+        {
+            foreach (OccupiedTables occupiedTable in occupiedTablesList)
+            {
+                dataGridView_guests.Rows.Add(occupiedTable.Table, occupiedTable.Persons, occupiedTable.Payment, occupiedTable.Status);
+            }
+        }
+
+
 
         /// <summary>
         /// Задает параметры для сплиттера
@@ -130,6 +187,8 @@ namespace Homework__Restaurant
                 e.Graphics.FillRectangle(Brushes.Silver, ll_ShrinkedSplitterRectangle);
             }
         }
+
+
 
         /// <summary>
         /// Создает treeview
@@ -154,49 +213,84 @@ namespace Homework__Restaurant
         {
             menu_tree.Nodes.Clear();
             CreateTreeView();
-            dataGridView_booking.Visible = true;
-            dataGridView_guests.Visible = false;
+
             if (this.booking_list.SelectedItems.Count != 0 && this.guests_list.SelectedItems.Count == 0)
             {
+                dataGridView_booking.Visible = true;
+                dataGridView_guests.Visible = false;
                 guestsList.Clear();
                 dataGridView_booking.DataSource = null;
+                dataGridView_guests.DataSource = null;
                 dataGridView_booking.Rows.Clear();
-
+                dataGridView_guests.Rows.Clear();
 
                 int select_category = booking_list.SelectedIndex;
                 switch (select_category)
                 {
                     case 0:
                         {
-                            DownloadFile("today", 0);
-                            FillListWithData("today");
+                            DownloadXMLFile("today", 0);
+                            FillListWithDataFromXML("today");
                         }
 
                         break;
                     case 1:
                         {
-                            DownloadFile("tomorrow", 0);
-                            FillListWithData("tomorrow");
+                            DownloadXMLFile("tomorrow", 0);
+                            FillListWithDataFromXML("tomorrow");
                         }
                         break;
                     case 2:
                         {
-                            DownloadFile("later", 0);
-                            FillListWithData("later");
+                            DownloadXMLFile("later", 0);
+                            FillListWithDataFromXML("later");
                         }
                         break;
 
                 }
-                FillDataGrigView();
+                FillDataGrigViewFromXML();
+                booking_list.ClearSelected();
+                guests_list.ClearSelected();
                 MessageBox.Show("Данные успешно загружены");
             }
             else if (this.booking_list.SelectedItems.Count == 0 && this.guests_list.SelectedItems.Count != 0)
             {
+                dataGridView_booking.Visible = false;
+                dataGridView_guests.Visible = true;
+                occupiedTablesList.Clear();
+                int select_category = guests_list.SelectedIndex;
+                switch (select_category)
+                {
+                    case 0:
+                        {
+                            DownloadJSONFile("tables_first10", 1);
+                            FillListWithDataFromJSON("tables_first10");
+                        }
 
+                        break;
+                    case 1:
+                        {
+                            DownloadJSONFile("tables_from10to20", 1);
+                            FillListWithDataFromJSON("tables_from10to20");
+                        }
+                        break;
+                    case 2:
+                        {
+                            DownloadJSONFile("tables_from20to30", 1);
+                            FillListWithDataFromJSON("tables_from20to30");
+                        }
+                        break;
+                }
+                FillDataGrigViewFromJSON();
+                booking_list.ClearSelected();
+                guests_list.ClearSelected();
+                MessageBox.Show("Данные успешно загружены");
             }
             else
             {
                 MessageBox.Show("Выберите одну категорию");
+                booking_list.ClearSelected();
+                guests_list.ClearSelected();
             }
         }
 
@@ -224,6 +318,19 @@ namespace Homework__Restaurant
                 };
                 info.ShowDialog();
             }
+            else if (e.Node.Parent != null && e.Node.Parent.Text == "Гости в зале")
+            {
+                InfoGuests info = new InfoGuests
+                {
+                    Table = occupiedTablesList[index].Table,
+                    Order = occupiedTablesList[index].Order,
+                    Persons = occupiedTablesList[index].Persons,
+                    Status = occupiedTablesList[index].Status,
+                    Payment = occupiedTablesList[index].Payment,
+
+                };
+                info.ShowDialog();
+            }
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -235,5 +342,6 @@ namespace Homework__Restaurant
             upper_panel.Location = new Point(formWidth * 2, pictureBoxY);
 
         }
+
     }
 }

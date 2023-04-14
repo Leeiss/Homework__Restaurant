@@ -213,7 +213,6 @@
             infolb_date.Size = new Size(91, 36);
             infolb_date.TabIndex = 12;
             infolb_date.Text = "Дата";
-            infolb_date.Click += infolb_date_Click;
             // 
             // infolb_status
             // 

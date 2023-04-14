@@ -17,10 +17,6 @@ namespace Homework__Restaurant
             InitializeComponent();
         }
 
-        private void infolb_date_Click(object sender, EventArgs e)
-        {
-
-        }
         public new string Name
         {
             get { return infolb_name.Text; }

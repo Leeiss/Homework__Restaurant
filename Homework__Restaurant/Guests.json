@@ -1,10 +1,130 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
+  "tables_first10": [
+    {
+      "table": {
+        "number": "1",
+        "capacity": "5"
+      },
+      "order": {
+        "food": "крем-суп, стейк",
+        "beverages": "мохито"
+      },
+      "persons": "3",
+      "payment": "2367",
+      "status": "не оплачено"
+    },
+
+    {
+      "table": {
+        "number": "4",
+        "capacity": "2"
+      },
+      "order": {
+        "food": "тако, салат цезарь, ",
+        "beverages": "зеленый чай, кофе"
+      },
+      "persons": "23",
+      "payment": "2381",
+      "status": "оплачено"
+    },
+
+    {
+      "table": {
+        "number": "8",
+        "capacity": "10"
+      },
+      "order": {
+        "food": "крем-суп, стейк, рататуй",
+        "beverages": "мохито, вино"
+      },
+      "persons": "5",
+      "payment": "2345",
+      "status": "не оплачено"
+    }
+  ],
+  "tables_from10to20": [
+    {
+      "table": {
+        "number": "10",
+        "capacity": "5"
+      },
+      "order": {
+        "food": "цезарь, чизкейк",
+        "beverages": "лимонад "
+      },
+      "persons": "5",
+      "payment": "569",
+      "status": "оплачено"
+    },
+
+    {
+      "table": {
+        "number": "17",
+        "capacity": "2"
+      },
+      "order": {
+        "food": "крем-суп, стейк",
+        "beverages": "мохито"
+      },
+      "persons": "1",
+      "payment": "5423",
+      "status": "оплачено"
+    },
+
+    {
+      "table": {
+        "number": "19",
+        "capacity": "4"
+      },
+      "order": {
+        "food": "крем-суп, стейк, цезарь, наполеон",
+        "beverages": "чай пуэр, малиновый коктейль, вино"
+      },
+      "persons": "4",
+      "payment": "3544",
+      "status": "оплачено"
+    }
+
+  ],
+  "tables_from20to30": [
+    {
+      "table": {
+        "number": "21",
+        "capacity": "8"
+      },
+      "order": {
+        "food": "крем-суп, стейк, карбонара",
+        "beverages": "мохито, зеленый чай"
+      },
+      "persons": "5",
+      "payment": "2345",
+      "status": "не оплачено"
+    },
+    {
+      "table": {
+        "number": "23",
+        "capacity": "2"
+      },
+      "order": {
+        "food": "цезарь",
+        "beverages": "цитрусовый фреш"
+      },
+      "persons": "2",
+      "payment": "560",
+      "status": "оплачено"
+    },
+    {
+      "table": {
+        "number": "24",
+        "capacity": "4"
+      },
+      "order": {
+        "food": "гавайская пицца",
+        "beverages": "ягодный морс"
+      },
+      "persons": "2",
+      "payment": "2345",
+      "status": "не оплачено"
+    }
   ]
 }

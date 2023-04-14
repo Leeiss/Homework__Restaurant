@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             lbl_restaurant = new Label();
             panel1 = new Panel();
             upper_panel = new FlowLayoutPanel();
@@ -56,11 +55,15 @@
             booking_list = new ListBox();
             show_page = new TabPage();
             dataGridView_booking = new DataGridView();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            date = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridView_guests = new DataGridView();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
             cancel_page = new TabPage();
             close_btn = new Button();
             fio = new DataGridViewTextBoxColumn();
@@ -68,11 +71,6 @@
             status = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            date = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
             splitContainer.Panel1.SuspendLayout();
             splitContainer.Panel2.SuspendLayout();
@@ -275,7 +273,7 @@
             dataGridView_booking.AllowUserToDeleteRows = false;
             dataGridView_booking.BackgroundColor = Color.FromArgb(221, 224, 221);
             dataGridView_booking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_booking.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, date, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
+            dataGridView_booking.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, date, dataGridViewTextBoxColumn5 });
             dataGridView_booking.Location = new Point(14, 61);
             dataGridView_booking.Name = "dataGridView_booking";
             dataGridView_booking.ReadOnly = true;
@@ -285,143 +283,6 @@
             dataGridView_booking.Size = new Size(1138, 899);
             dataGridView_booking.TabIndex = 11;
             dataGridView_booking.Visible = false;
-            // 
-            // dataGridView_guests
-            // 
-            dataGridView_guests.AllowUserToAddRows = false;
-            dataGridView_guests.AllowUserToDeleteRows = false;
-            dataGridView_guests.BackgroundColor = Color.FromArgb(221, 224, 221);
-            dataGridView_guests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_guests.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
-            dataGridView_guests.Location = new Point(14, 70);
-            dataGridView_guests.Name = "dataGridView_guests";
-            dataGridView_guests.ReadOnly = true;
-            dataGridView_guests.RowHeadersWidth = 82;
-            dataGridView_guests.RowTemplate.Height = 41;
-            dataGridView_guests.Size = new Size(1138, 899);
-            dataGridView_guests.TabIndex = 10;
-            dataGridView_guests.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(112, 151, 171);
-            dataGridViewCellStyle6.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.WhiteSmoke;
-            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewTextBoxColumn7.HeaderText = "Столик";
-            dataGridViewTextBoxColumn7.MinimumWidth = 10;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.ReadOnly = true;
-            dataGridViewTextBoxColumn7.Width = 137;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle7.BackColor = Color.White;
-            dataGridViewCellStyle7.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewTextBoxColumn8.HeaderText = "Заказ";
-            dataGridViewTextBoxColumn8.MinimumWidth = 10;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.ReadOnly = true;
-            dataGridViewTextBoxColumn8.Width = 119;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewTextBoxColumn9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewTextBoxColumn9.HeaderText = "Кол-во человек";
-            dataGridViewTextBoxColumn9.MinimumWidth = 10;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.ReadOnly = true;
-            dataGridViewTextBoxColumn9.Width = 216;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle9.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewTextBoxColumn10.HeaderText = "Оплата";
-            dataGridViewTextBoxColumn10.MinimumWidth = 10;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // cancel_page
-            // 
-            cancel_page.BackColor = Color.FromArgb(250, 244, 235);
-            cancel_page.Controls.Add(close_btn);
-            cancel_page.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            cancel_page.Location = new Point(8, 46);
-            cancel_page.Name = "cancel_page";
-            cancel_page.Size = new Size(1168, 1060);
-            cancel_page.TabIndex = 2;
-            cancel_page.Text = "Закрыть";
-            // 
-            // close_btn
-            // 
-            close_btn.BackColor = Color.FromArgb(221, 224, 221);
-            close_btn.Font = new Font("PT Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
-            close_btn.ForeColor = Color.FromArgb(84, 113, 128);
-            close_btn.Location = new Point(411, 425);
-            close_btn.Name = "close_btn";
-            close_btn.Size = new Size(365, 134);
-            close_btn.TabIndex = 0;
-            close_btn.Text = "Закрыть программу";
-            close_btn.UseVisualStyleBackColor = false;
-            close_btn.Click += close_btn_Click;
-            // 
-            // fio
-            // 
-            fio.HeaderText = "ФИО";
-            fio.MinimumWidth = 10;
-            fio.Name = "fio";
-            fio.Width = 200;
-            // 
-            // table
-            // 
-            table.HeaderText = "Столик";
-            table.MinimumWidth = 10;
-            table.Name = "table";
-            table.Width = 200;
-            // 
-            // status
-            // 
-            status.HeaderText = "Статус";
-            status.MinimumWidth = 10;
-            status.Name = "status";
-            status.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(112, 151, 171);
-            dataGridViewCellStyle10.Font = new Font("PT Serif", 7.875F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.WhiteSmoke;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle10;
-            dataGridViewTextBoxColumn1.HeaderText = "ФИО";
-            dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle11.BackColor = Color.White;
-            dataGridViewCellStyle11.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewTextBoxColumn2.HeaderText = "Номер столика";
-            dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -472,16 +333,139 @@
             dataGridViewTextBoxColumn5.ReadOnly = true;
             dataGridViewTextBoxColumn5.Width = 129;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridView_guests
             // 
-            dataGridViewTextBoxColumn6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle5.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewTextBoxColumn6.HeaderText = "Мероприятие";
-            dataGridViewTextBoxColumn6.MinimumWidth = 10;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
+            dataGridView_guests.AllowUserToAddRows = false;
+            dataGridView_guests.AllowUserToDeleteRows = false;
+            dataGridView_guests.BackgroundColor = Color.FromArgb(221, 224, 221);
+            dataGridView_guests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_guests.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, Column1 });
+            dataGridView_guests.Location = new Point(14, 61);
+            dataGridView_guests.Name = "dataGridView_guests";
+            dataGridView_guests.ReadOnly = true;
+            dataGridView_guests.RowHeadersWidth = 82;
+            dataGridView_guests.RowTemplate.Height = 41;
+            dataGridView_guests.Size = new Size(1138, 899);
+            dataGridView_guests.TabIndex = 10;
+            dataGridView_guests.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(112, 151, 171);
+            dataGridViewCellStyle5.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
+            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewTextBoxColumn7.HeaderText = "Столик";
+            dataGridViewTextBoxColumn7.MinimumWidth = 10;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            dataGridViewTextBoxColumn7.Width = 137;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewTextBoxColumn9.HeaderText = "Кол-во человек";
+            dataGridViewTextBoxColumn9.MinimumWidth = 10;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            dataGridViewTextBoxColumn9.Width = 216;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle7.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewTextBoxColumn10.HeaderText = "Оплата";
+            dataGridViewTextBoxColumn10.MinimumWidth = 10;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle8.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Column1.DefaultCellStyle = dataGridViewCellStyle8;
+            Column1.HeaderText = "Статус";
+            Column1.MinimumWidth = 10;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 200;
+            // 
+            // cancel_page
+            // 
+            cancel_page.BackColor = Color.FromArgb(250, 244, 235);
+            cancel_page.Controls.Add(close_btn);
+            cancel_page.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            cancel_page.Location = new Point(8, 46);
+            cancel_page.Name = "cancel_page";
+            cancel_page.Size = new Size(1168, 1060);
+            cancel_page.TabIndex = 2;
+            cancel_page.Text = "Закрыть";
+            // 
+            // close_btn
+            // 
+            close_btn.BackColor = Color.FromArgb(221, 224, 221);
+            close_btn.Font = new Font("PT Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point);
+            close_btn.ForeColor = Color.FromArgb(84, 113, 128);
+            close_btn.Location = new Point(411, 425);
+            close_btn.Name = "close_btn";
+            close_btn.Size = new Size(365, 134);
+            close_btn.TabIndex = 0;
+            close_btn.Text = "Закрыть программу";
+            close_btn.UseVisualStyleBackColor = false;
+            close_btn.Click += close_btn_Click;
+            // 
+            // fio
+            // 
+            fio.HeaderText = "ФИО";
+            fio.MinimumWidth = 10;
+            fio.Name = "fio";
+            fio.Width = 200;
+            // 
+            // table
+            // 
+            table.HeaderText = "Столик";
+            table.MinimumWidth = 10;
+            table.Name = "table";
+            table.Width = 200;
+            // 
+            // status
+            // 
+            status.HeaderText = "Статус";
+            status.MinimumWidth = 10;
+            status.Name = "status";
+            status.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(112, 151, 171);
+            dataGridViewCellStyle9.Font = new Font("PT Serif", 7.875F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = Color.WhiteSmoke;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewTextBoxColumn1.HeaderText = "ФИО";
+            dataGridViewTextBoxColumn1.MinimumWidth = 10;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewTextBoxColumn2.HeaderText = "Номер столика";
+            dataGridViewTextBoxColumn2.MinimumWidth = 10;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.Width = 200;
             // 
             // MainForm
             // 
@@ -523,7 +507,6 @@
         private TreeView menu_tree;
         private Label lbl_menu;
         private PictureBox mainpicture;
-        private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
@@ -544,15 +527,14 @@
         private TabPage show_page;
         private DataGridView dataGridView_booking;
         private DataGridView dataGridView_guests;
+        private Button close_btn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private Button close_btn;
+        private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn date;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
