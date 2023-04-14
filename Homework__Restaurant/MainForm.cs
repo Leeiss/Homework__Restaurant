@@ -196,7 +196,7 @@ namespace Homework__Restaurant
         private void CreateTreeView()
         {
             menu_tree.Nodes.Add("Бронь");
-            menu_tree.Nodes.Add("Гости в зале");
+            menu_tree.Nodes.Add("Гости в зале (занятые столики)");
         }
 
         private void booking_list_SelectedIndexChanged(object sender, EventArgs e)
@@ -318,7 +318,7 @@ namespace Homework__Restaurant
                 };
                 info.ShowDialog();
             }
-            else if (e.Node.Parent != null && e.Node.Parent.Text == "Гости в зале")
+            else if (e.Node.Parent != null && e.Node.Parent.Text == "Гости в зале (занятые столики)")
             {
                 InfoGuests info = new InfoGuests
                 {
@@ -343,5 +343,9 @@ namespace Homework__Restaurant
 
         }
 
+        private void splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
     }
 }

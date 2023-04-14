@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoGuests));
             infolb_payment = new Label();
             infolb_status = new Label();
             infolb_persons = new Label();
@@ -256,6 +257,7 @@
             Controls.Add(frame4);
             Controls.Add(frame3);
             Controls.Add(frame2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InfoGuests";
             Text = "Информация о занятом столике";
             frame1.ResumeLayout(false);
