@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             lbl_restaurant = new Label();
-            panel1 = new Panel();
+            panel_uuper = new Panel();
             upper_panel = new FlowLayoutPanel();
             splitContainer = new SplitContainer();
             lbl_menu = new Label();
@@ -95,12 +95,12 @@
             lbl_restaurant.TabIndex = 0;
             lbl_restaurant.Text = "Restaurant";
             // 
-            // panel1
+            // panel_uuper
             // 
-            panel1.Location = new Point(-1, -2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1630, 27);
-            panel1.TabIndex = 1;
+            panel_uuper.Location = new Point(-1, -2);
+            panel_uuper.Name = "panel_uuper";
+            panel_uuper.Size = new Size(1630, 27);
+            panel_uuper.TabIndex = 1;
             // 
             // upper_panel
             // 
@@ -287,11 +287,11 @@
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(112, 151, 171);
-            dataGridViewCellStyle1.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.WhiteSmoke;
-            dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(112, 151, 171);
+            dataGridViewCellStyle11.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = Color.WhiteSmoke;
+            dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle11;
             dataGridViewTextBoxColumn3.HeaderText = "ФИО";
             dataGridViewTextBoxColumn3.MinimumWidth = 10;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -300,10 +300,10 @@
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle12.BackColor = Color.White;
+            dataGridViewCellStyle12.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle12;
             dataGridViewTextBoxColumn4.HeaderText = "Номер столика";
             dataGridViewTextBoxColumn4.MinimumWidth = 10;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -313,8 +313,8 @@
             // date
             // 
             date.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            date.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            date.DefaultCellStyle = dataGridViewCellStyle13;
             date.HeaderText = "Дата";
             date.MinimumWidth = 10;
             date.Name = "date";
@@ -323,10 +323,10 @@
             // dataGridViewTextBoxColumn5
             // 
             dataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle14.BackColor = Color.White;
+            dataGridViewCellStyle14.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle14;
             dataGridViewTextBoxColumn5.HeaderText = "Статус";
             dataGridViewTextBoxColumn5.MinimumWidth = 10;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -352,11 +352,11 @@
             // dataGridViewTextBoxColumn7
             // 
             dataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(112, 151, 171);
-            dataGridViewCellStyle5.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.WhiteSmoke;
-            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(112, 151, 171);
+            dataGridViewCellStyle15.Font = new Font("PT Serif", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = Color.WhiteSmoke;
+            dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle15;
             dataGridViewTextBoxColumn7.HeaderText = "Столик";
             dataGridViewTextBoxColumn7.MinimumWidth = 10;
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
@@ -366,10 +366,10 @@
             // dataGridViewTextBoxColumn9
             // 
             dataGridViewTextBoxColumn9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle16.BackColor = Color.White;
+            dataGridViewCellStyle16.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle16;
             dataGridViewTextBoxColumn9.HeaderText = "Кол-во человек";
             dataGridViewTextBoxColumn9.MinimumWidth = 10;
             dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
@@ -379,9 +379,9 @@
             // dataGridViewTextBoxColumn10
             // 
             dataGridViewTextBoxColumn10.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle7.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle17.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle17;
             dataGridViewTextBoxColumn10.HeaderText = "Оплата";
             dataGridViewTextBoxColumn10.MinimumWidth = 10;
             dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
@@ -389,8 +389,8 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle8.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
-            Column1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Font = new Font("PT Serif", 7.875F, FontStyle.Regular, GraphicsUnit.Point);
+            Column1.DefaultCellStyle = dataGridViewCellStyle18;
             Column1.HeaderText = "Статус";
             Column1.MinimumWidth = 10;
             Column1.Name = "Column1";
@@ -445,11 +445,11 @@
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(112, 151, 171);
-            dataGridViewCellStyle9.Font = new Font("PT Serif", 7.875F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.WhiteSmoke;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle19.BackColor = Color.FromArgb(112, 151, 171);
+            dataGridViewCellStyle19.Font = new Font("PT Serif", 7.875F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle19.ForeColor = Color.WhiteSmoke;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle19;
             dataGridViewTextBoxColumn1.HeaderText = "ФИО";
             dataGridViewTextBoxColumn1.MinimumWidth = 10;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -458,10 +458,10 @@
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle20.BackColor = Color.White;
+            dataGridViewCellStyle20.Font = new Font("PT Serif", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle20;
             dataGridViewTextBoxColumn2.HeaderText = "Номер столика";
             dataGridViewTextBoxColumn2.MinimumWidth = 10;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -475,8 +475,9 @@
             ClientSize = new Size(1593, 1175);
             Controls.Add(lbl_restaurant);
             Controls.Add(upper_panel);
-            Controls.Add(panel1);
+            Controls.Add(panel_uuper);
             Controls.Add(splitContainer);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1619, 1246);
             Name = "MainForm";
             Text = "Restaurant";
@@ -501,7 +502,7 @@
         #endregion
 
         private Label lbl_restaurant;
-        private Panel panel1;
+        private Panel panel_uuper;
         private FlowLayoutPanel upper_panel;
         private SplitContainer splitContainer;
         private TreeView menu_tree;

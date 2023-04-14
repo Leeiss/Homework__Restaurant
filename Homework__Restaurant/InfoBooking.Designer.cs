@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoBooking));
             info_lbl = new Label();
             lbl_name = new Label();
             lbl_event = new Label();
@@ -256,6 +257,7 @@
             Controls.Add(frame4);
             Controls.Add(frame3);
             Controls.Add(frame2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InfoBooking";
             Text = "Информация о посетителе";
             frame1.ResumeLayout(false);
